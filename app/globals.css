@@ -1,0 +1,103 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .auth-py {
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    @media only screen and (max-width: 512px) {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+
+  .auth-px {
+    padding-left: 40px;
+    padding-right: 40px;
+
+    @media only screen and (max-width: 512px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  .auth-grid {
+    display: grid;
+    grid-template-columns: 1fr minmax(700px, 44vw);
+
+    @media only screen and (max-width: 1000px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .main-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+  }
+
+  .grid-layout {
+    display: grid;
+    grid-template-rows: max-content 1fr max-content;
+    min-height: 100vh;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    @media only screen and (max-width: 1473px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media only screen and (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media only screen and (max-width: 572px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .p-side {
+    padding: 0 40px;
+
+    @media only screen and (max-width: 1280px) {
+      padding: 0 32px;
+    }
+
+    @media only screen and (max-width: 1024px) {
+      padding: 0 28px;
+    }
+
+    @media only screen and (max-width: 768px) {
+      padding: 0 20px;
+    }
+  }
+
+  .storiesContainer::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+  }
+
+  .storiesContainer {
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+    scrollbar-width: none; /* For Firefox */
+  }
+}
