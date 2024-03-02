@@ -1,4 +1,3 @@
-import { user } from '@/app/constant';
 import Link from 'next/link';
 
 interface PostFollowUserProps {
@@ -18,7 +17,9 @@ const PostFollowUser: React.FC<PostFollowUserProps> = ({
         {fullName}
       </Link>
       <span className="mr-2">-</span>
-      <button>{isFollowing ? 'Following' : 'follow'}</button>
+      <button className="hover:underline">
+        {isFollowing ? 'Following' : 'follow'}
+      </button>
     </div>
   );
 };

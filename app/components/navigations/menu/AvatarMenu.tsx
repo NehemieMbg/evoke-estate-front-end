@@ -27,9 +27,7 @@ const AvatarMenu: React.FC<AvatarMenuProps> = ({ user }) => {
   return (
     <HoverCard closeDelay={100} openDelay={5}>
       <HoverCardTrigger asChild>
-        <Link href={'/profile'}>
-          {isLoggedIn && <NavbarAvatar src={user?.avatar} />}
-        </Link>
+        <button>{isLoggedIn && <NavbarAvatar src={user?.avatar} />}</button>
       </HoverCardTrigger>
 
       <HoverCardContent className="w-72 p-0 mx-8">

@@ -7,7 +7,7 @@ const UserProfilePage = () => {
   const followerSpanStyle = 'font-medium';
 
   return (
-    <section className="py-10">
+    <section className="py-10 p-side">
       {/* //? User Infos */}
       <div className="max-w-wide w-full mx-auto flex max-lg:flex-col lg:justify-between mb-14">
         <div>
