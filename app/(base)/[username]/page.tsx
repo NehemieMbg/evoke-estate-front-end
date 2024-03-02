@@ -1,4 +1,5 @@
 import { PostsWrapper, UserProfileAvatar } from '@/app/components';
+import PostCardProfile from '@/app/components/cards/posts/PostCardProfile';
 import { user, posts } from '@/app/constant';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -60,18 +61,14 @@ const UserProfilePage = () => {
 
       <PostsWrapper>
         {posts.map((post) => (
-          <Link
-            href={`post/${post.id}`}
+          <PostCardProfile
+            id={post.id}
+            image={post.content}
             key={post.id}
-            className="rounded-lg overflow-hidden"
-          >
-            <Image
-              src={post.content}
-              alt="post image"
-              width={773}
-              height={434}
-            />
-          </Link>
+            likes={post.likes}
+            views={post.views}
+            title={post.title}
+          />
         ))}
       </PostsWrapper>
     </section>
