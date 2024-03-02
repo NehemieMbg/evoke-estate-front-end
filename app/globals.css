@@ -76,6 +76,12 @@ html {
     }
   }
 
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+  }
+
   .p-side {
     padding: 0 40px;
 
@@ -99,5 +105,14 @@ html {
   .storiesContainer {
     -ms-overflow-style: none; /* For Internet Explorer and Edge */
     scrollbar-width: none; /* For Firefox */
+  }
+
+  .contentContainer .contentTitle {
+    opacity: 0; /* Make it invisible initially */
+    transition: opacity 0.3s ease; /* Smooth transition for the opacity change */
+  }
+
+  .contentContainer:hover .contentTitle {
+    opacity: 1; /* Make it fully visible on hover */
   }
 }

@@ -1,4 +1,4 @@
-import { UserProfileAvatar } from '@/app/components';
+import { PostsWrapper, UserProfileAvatar } from '@/app/components';
 import { user, posts } from '@/app/constant';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -58,7 +58,7 @@ const UserProfilePage = () => {
         </div>
       </div>
 
-      <div className="posts-grid gap-x-5 max-xl:gap-4 gap-y-6 max-w-wide w-full mx-auto">
+      <PostsWrapper>
         {posts.map((post) => (
           <Link
             href={`post/${post.id}`}
@@ -73,7 +73,7 @@ const UserProfilePage = () => {
             />
           </Link>
         ))}
-      </div>
+      </PostsWrapper>
     </section>
   );
 };

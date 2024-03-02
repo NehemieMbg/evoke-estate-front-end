@@ -25,8 +25,8 @@ export const posts = [
     id: 1,
     title: 'The first post',
     description: 'This is the first post content',
-    likes: 10_000,
-    views: 150_000,
+    likes: 138,
+    views: 250,
     content:
       'https://utfs.io/f/02a7b7c5-b5de-4497-830c-6acbadbc7662-z1rihb.png',
     user: {
@@ -39,8 +39,8 @@ export const posts = [
     id: 2,
     title: 'The first post',
     description: 'This is the first post content',
-    likes: 10_000,
-    views: 150_000,
+    likes: 138,
+    views: 250,
     content:
       'https://utfs.io/f/65d1eff3-8209-4592-9aaa-c7b7881685b4-z1rihg.png',
     user: {
@@ -53,8 +53,8 @@ export const posts = [
     id: 3,
     title: 'The first post',
     description: 'This is the first post content',
-    likes: 10_000,
-    views: 150_000,
+    likes: 138,
+    views: 250,
     content:
       'https://utfs.io/f/82afb2a8-1c50-4325-a4a2-f2e065fb21f1-z1rihd.png',
     user: {
@@ -67,8 +67,8 @@ export const posts = [
     id: 4,
     title: 'The first post',
     description: 'This is the first post content',
-    likes: 10_000,
-    views: 150_000,
+    likes: 138,
+    views: 250,
     content:
       'https://utfs.io/f/e7bf28e1-e99f-4c87-b6e6-1c30b5b0fbb6-l203b5.png',
     user: {
@@ -81,8 +81,8 @@ export const posts = [
     id: 5,
     title: 'The first post',
     description: 'This is the first post content',
-    likes: 10_000,
-    views: 150_000,
+    likes: 138,
+    views: 250,
     content:
       'https://utfs.io/f/ea02394a-74c5-406d-9589-3d9aab86466b-nm65jp.png',
     user: {
@@ -95,8 +95,8 @@ export const posts = [
     id: 6,
     title: 'The first post',
     description: 'This is the first post content',
-    likes: 10_000,
-    views: 150_000,
+    likes: 138,
+    views: 250,
     content:
       'https://utfs.io/f/4cc7cfd1-695d-4c6b-8bf0-ee1bde7ad75d-z1rihc.png',
     user: {
@@ -109,8 +109,8 @@ export const posts = [
     id: 7,
     title: 'The first post',
     description: 'This is the first post content',
-    likes: 10_000,
-    views: 150_000,
+    likes: 138,
+    views: 250,
     content:
       'https://utfs.io/f/7be74371-74c5-4d26-aa00-2dfd26f06496-z1rihf.png',
     user: {
@@ -123,8 +123,8 @@ export const posts = [
     id: 8,
     title: 'The first post',
     description: 'This is the first post content',
-    likes: 10_000,
-    views: 150_000,
+    likes: 138,
+    views: 250,
     content:
       'https://utfs.io/f/e4cee043-c749-4b00-b4ab-22715a2add35-z1rihj.png',
     user: {
@@ -137,8 +137,8 @@ export const posts = [
     id: 9,
     title: 'The first post',
     description: 'This is the first post content',
-    likes: 10_000,
-    views: 150_000,
+    likes: 138,
+    views: 250,
     content:
       'https://utfs.io/f/19ec4cae-acf3-47e9-9b2b-8d77c8a8c232-z1rihh.png',
     user: {
@@ -151,8 +151,8 @@ export const posts = [
     id: 10,
     title: 'The first post',
     description: 'This is the first post content',
-    likes: 10_000,
-    views: 150_000,
+    likes: 138,
+    views: 250,
     content:
       'https://utfs.io/f/24ad3d43-2284-45e3-956c-ee7eff451f44-z1rihe.png',
     user: {
@@ -165,8 +165,8 @@ export const posts = [
     id: 11,
     title: 'The first post',
     description: 'This is the first post content',
-    likes: 10_000,
-    views: 150_000,
+    likes: 138,
+    views: 250,
     content:
       'https://utfs.io/f/02a7b7c5-b5de-4497-830c-6acbadbc7662-z1rihb.png',
     user: {
@@ -179,8 +179,8 @@ export const posts = [
     id: 12,
     title: 'The first post',
     description: 'This is the first post content',
-    likes: 10_000,
-    views: 150_000,
+    likes: 138,
+    views: 250,
     content:
       'https://utfs.io/f/877183ed-40be-4ba1-8854-2fcd6a50cf18-l203b6.png',
     user: {
@@ -201,45 +201,240 @@ export const user = {
   following: 16,
 };
 
-export const footer = {
-  links: [
-    {
-      title: 'Kitchen',
-      href: '/search?tag=kitchen',
+export const stories = [
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
     },
-    {
-      title: 'Living Room',
-      href: '/search?tag=living-room',
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
     },
-    {
-      title: 'Master Bedroom',
-      href: '/search?tag=master-bedroom',
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
     },
-    {
-      title: 'Home Office',
-      href: '/search?tag=home-office',
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
     },
-    {
-      title: 'Academy',
-      href: '/academy',
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
     },
-    {
-      title: 'Evoke Pro',
-      href: '/pro',
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
     },
-  ],
-  information: [
-    {
-      title: 'FAQ',
-      href: '/faq',
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
     },
-    {
-      title: 'About Us',
-      href: '/about',
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
     },
-    {
-      title: 'Contact Us',
-      href: '/contact',
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
     },
-  ],
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
+    },
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
+    },
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
+    },
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
+    },
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
+    },
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
+    },
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
+    },
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
+    },
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
+    },
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
+    },
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+  {
+    user: {
+      username: 'naomi',
+      fullName: 'Naomi Liu',
+      avatar:
+        'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
+    },
+    content: 'image',
+    src: 'https://utfs.io/f/bd6c2d4b-d0a3-4f10-8f76-b4e98298549f-jbcb57.png',
+    bandWidth: 10000,
+  },
+];
+
+export const post = {
+  src: 'https://utfs.io/f/1512a3f4-302e-49f1-9cb9-8918d9c459ef-cc5e84.png',
+  id: 12,
+  title: 'The first post',
+  description: 'This is the first post content',
+  likes: 138,
+  views: 250,
+
+  user: {
+    username: 'naomi',
+    fullName: 'Naomi Liu',
+    title: 'Interior Designer',
+  },
 };

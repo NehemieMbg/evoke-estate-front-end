@@ -1,5 +1,8 @@
 import { Navbar } from '../components';
 import Footer from '../components/footer/Footer';
+import HomepageSearch from '../sections/helpersLayouts/HomepageSearch';
+import SearchSettings from '../sections/homepage/searchSettings/SearchSettings';
+import Stories from '../sections/homepage/stories/Stories';
 
 export default function BaseLayout({
   children, // will be a page or nested layout
@@ -12,9 +15,15 @@ export default function BaseLayout({
         <Navbar />
       </div>
 
-      <main className="">{children}</main>
+      <main className="">
+        <HomepageSearch />
 
-      <Footer />
+        {children}
+      </main>
+
+      <div className="p-side mt-10">
+        <Footer />
+      </div>
     </section>
   );
 }

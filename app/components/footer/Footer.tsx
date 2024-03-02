@@ -5,7 +5,7 @@ const Footer = () => {
   const footerLinkStyle = 'flex flex-col gap-4 w-max';
 
   return (
-    <footer className="p-side max-w-wide w-full mx-auto mt-10">
+    <footer className="max-w-wide w-full mx-auto mt-10">
       <div className="mb-12">
         <div className="mb-6">
           <Logo />
@@ -62,9 +62,18 @@ const Footer = () => {
         </div>
         <div className="flex flex-wrap items-center gap-6">
           <p className="font-medium">Connect:</p>
-          <a href="https://www.linkedin.com/in/nehemie-mombanga/">LinkedIn</a>
-          <a href="https://github.com/NehemieMbg">Github</a>
-          <a href="https://www.6nehemie.com/">Portfolio</a>
+          <a
+            href="https://www.linkedin.com/in/nehemie-mombanga/"
+            target="_blank"
+          >
+            LinkedIn
+          </a>
+          <a href="https://github.com/NehemieMbg" target="_blank">
+            Github
+          </a>
+          <a href="https://www.6nehemie.com/" target="_blank">
+            Portfolio
+          </a>
         </div>
       </div>
     </footer>

@@ -2,7 +2,7 @@
 
 import AddStory from '@/app/components/buttons/stories/AddStory';
 import UserStory from '@/app/components/buttons/stories/UserStory';
-import { user } from '@/app/constant';
+import { stories, user } from '@/app/constant';
 import { useRef } from 'react';
 
 const Stories = () => {
@@ -37,26 +37,17 @@ const Stories = () => {
       onMouseLeave={stopDragging}
       onMouseUp={stopDragging}
       onMouseMove={whileDragging}
-      className="relative storiesContainer overflow-hidden overflow-x-scroll h-32 cursor-grab"
+      className="relative storiesContainer max-w-wide mx-auto overflow-hidden overflow-x-scroll h-32 cursor-grab"
     >
-      <div className="p-side absolute top-0 py-6  flex gap-12">
+      <div className="absolute top-0 py-6 flex gap-12">
         <AddStory />
-        <UserStory username={user.username} src={user.avatar} />
-        <UserStory username={user.username} src={user.avatar} />
-        <UserStory username={user.username} src={user.avatar} />
-        <UserStory username={user.username} src={user.avatar} />
-        <UserStory username={user.username} src={user.avatar} />
-        <UserStory username={user.username} src={user.avatar} />
-        <UserStory username={user.username} src={user.avatar} />
-        <UserStory username={user.username} src={user.avatar} />
-        <UserStory username={user.username} src={user.avatar} />
-        <UserStory username={user.username} src={user.avatar} />
-        <UserStory username={user.username} src={user.avatar} />
-        <UserStory username={user.username} src={user.avatar} />
-        <UserStory username={user.username} src={user.avatar} />
-        <UserStory username={user.username} src={user.avatar} />
-        <UserStory username={user.username} src={user.avatar} />
-        <UserStory username={user.username} src={user.avatar} />
+        {stories.map((story, index) => (
+          <UserStory
+            username={story.user.username}
+            src={story.user.avatar}
+            key={index}
+          />
+        ))}
       </div>
     </section>
   );
