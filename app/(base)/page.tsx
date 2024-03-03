@@ -1,5 +1,4 @@
 import { PostCard, PostsWrapper } from '../components';
-import PostModal from '../components/modals/posts/PostModal';
 import { posts } from '../constant';
 
 export default function Home() {
@@ -17,8 +16,6 @@ export default function Home() {
           />
         ))}
       </PostsWrapper>
-
-      {/* <PostModal /> */}
     </main>
   );
 }

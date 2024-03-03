@@ -1,9 +1,5 @@
 import Logo from '../../icons/logo/Logo';
-import {
-  PlusIcon,
-  BellIcon,
-  Squares2X2Icon,
-} from '@heroicons/react/24/outline';
+import { BellIcon, Squares2X2Icon } from '@heroicons/react/24/outline';
 
 import IconContainer from '../../icons/container/IconContainer';
 import Link from 'next/link';

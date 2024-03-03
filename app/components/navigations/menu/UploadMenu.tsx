@@ -23,7 +23,7 @@ const UploadMenu: React.FC<UploadMenuProps> = () => {
 
       <HoverCardContent className="w-72 p-0 mr-20">
         <div className="flex flex-col font-light text-sm py-2">
-          <Link href={'/create/project'} className={`${navigationStyle} `}>
+          <Link href={'/create/project/new'} className={`${navigationStyle} `}>
             <PlusIcon className="h-5 w-5" strokeWidth={1.5} />
             <span>Share Design</span>
           </Link>

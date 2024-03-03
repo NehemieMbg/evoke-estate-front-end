@@ -12,3 +12,5 @@ export { default as PostAvatar } from './avatars/PostAvatar';
 export { default as PostAvatarFollowing } from './avatars/PostAvatarFollowing';
 export { default as PostFollowUser } from './buttons/infos/PostFollowUser';
 export { default as PostAction } from './buttons/infos/PostAction';
+export { default as DashboardCard } from './cards/dashboard/DashboardCard';
+export { default as SettingsNavigation } from './navigations/dashboard/settings/SettingsNavigation';

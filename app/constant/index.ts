@@ -195,6 +195,7 @@ export const user = {
   fullName: 'Naomi Liu',
   username: 'naomi',
   title: 'Interior Designer',
+  country: 'Switzerland',
   avatar: 'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
   bio: '🎨Interior Designer | Transforming spaces into dream places🌿 Pro tips & inspiration. 💌 DM for collabs & consults.',
   followers: 150,
@@ -438,3 +439,5 @@ export const post = {
     title: 'Interior Designer',
   },
 };
+
+export const dashboardNavigation = [];

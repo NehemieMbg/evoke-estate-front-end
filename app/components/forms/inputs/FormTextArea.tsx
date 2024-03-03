@@ -1,5 +1,4 @@
-interface FormInputProps {
-  type: 'email' | 'password' | 'text' | 'number';
+interface FormTextAreaProps {
   name: string;
   label: string;
   defaultValue?: string;
@@ -7,8 +6,7 @@ interface FormInputProps {
   required?: boolean;
 }
 
-const FormInput: React.FC<FormInputProps> = ({
-  type,
+const FormTextArea: React.FC<FormTextAreaProps> = ({
   label,
   name,
   placeholder,
@@ -23,16 +21,16 @@ const FormInput: React.FC<FormInputProps> = ({
       >
         {label}
       </label>
-      <input
-        type={type}
+      <textarea
         name={name}
         id={name}
         defaultValue={defaultValue}
         required={required}
         placeholder={placeholder}
-        className={`h-12 w-full rounded font-light font-exo2 px-5 placeholder:text-[14px] placeholder:font-light placeholder:text-text-light-gray outline-none border-b-2 focus:border-neutral-400 transition-colors duration-200`}
+        rows={5}
+        className={`py-2 w-full rounded font-light font-exo2 px-5 placeholder:text-[14px] placeholder:font-light placeholder:text-text-light-gray outline-none border-b-2 focus:border-neutral-400 transition-colors duration-200`}
       />
     </div>
   );
 };
-export default FormInput;
+export default FormTextArea;

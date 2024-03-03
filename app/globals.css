@@ -82,6 +82,16 @@ html {
     gap: 20px;
   }
 
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  }
+
+  .profile-settings-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .p-side {
     padding: 0 40px;
 

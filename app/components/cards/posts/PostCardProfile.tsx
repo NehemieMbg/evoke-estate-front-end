@@ -1,15 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import PostAvatar from '../../avatars/PostAvatar';
-import { user } from '@/app/constant';
-import { EyeIcon, HandThumbUpIcon } from '@heroicons/react/20/solid';
 
 interface Post {
   id: number;
   image: string;
   href?: string;
-  likes: number;
-  views: number;
+  likes?: number;
+  views?: number;
   title: string;
 }
 
@@ -21,12 +18,7 @@ const PostCardProfile: React.FC<Post> = ({
   views,
   href,
 }) => {
-  const isPro = true;
   const postTitle = title.split(' ').join('-').toLowerCase();
-  const userInitials = user.fullName
-    .split(' ')
-    .map((name) => name[0])
-    .join('');
 
   return (
     <div>
