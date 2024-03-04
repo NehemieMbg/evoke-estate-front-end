@@ -16,6 +16,7 @@ const HomepageSearch: React.FC<HomepageSearchProps> = () => {
   return (
     <section className={` ${!startWithForYou && 'hidden'} p-side mb-14`}>
       <Stories />
+
       <SearchSettings />
     </section>
   );

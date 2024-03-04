@@ -4,7 +4,6 @@ import { FormInput, FormSubmitBtn } from '@/app/components';
 import FormTextArea from '@/app/components/forms/inputs/FormTextArea';
 import ProfilePictureInput from '@/app/components/forms/inputs/ProfilePictureInput';
 import { user } from '@/app/constant/index';
-import { convertToInitials } from '@/utils/functions/textTransformations';
 
 const page = () => {
   const clientAction = async (formData: FormData) => {

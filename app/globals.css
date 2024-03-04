@@ -107,6 +107,21 @@ html {
       padding: 0 20px;
     }
   }
+  .m-side {
+    margin: 0 40px;
+
+    @media only screen and (max-width: 1280px) {
+      margin: 0 32px;
+    }
+
+    @media only screen and (max-width: 1024px) {
+      margin: 0 28px;
+    }
+
+    @media only screen and (max-width: 768px) {
+      margin: 0 20px;
+    }
+  }
 
   .storiesContainer::-webkit-scrollbar {
     display: none; /* For Chrome, Safari, and Opera */

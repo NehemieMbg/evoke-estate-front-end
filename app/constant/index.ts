@@ -194,6 +194,7 @@ export const posts = [
 export const user = {
   fullName: 'Naomi Liu',
   username: 'naomi',
+  email: 'naomi@liu.com',
   title: 'Interior Designer',
   country: 'Switzerland',
   avatar: 'https://utfs.io/f/5eec9af9-b824-42c2-892a-f58d4a577aa3-8vvap2.png',
