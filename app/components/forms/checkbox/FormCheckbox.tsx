@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 interface FormCheckboxProps {
   label: string;
@@ -9,10 +9,12 @@ interface FormCheckboxProps {
 
 const FormCheckbox: React.FC<FormCheckboxProps> = ({ label, name }) => {
   const [isChecked, setIsChecked] = useState(false);
+  const checkboxRef = useRef<HTMLInputElement>(null);
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(event.target.checked);
   };
+  // console.log(checkboxRef);
 
   return (
     <div>
@@ -32,6 +34,7 @@ const FormCheckbox: React.FC<FormCheckboxProps> = ({ label, name }) => {
       </label>
 
       <input
+        ref={checkboxRef}
         type="checkbox"
         name={name}
         id={name}

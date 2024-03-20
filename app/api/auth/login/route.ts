@@ -16,16 +16,14 @@ interface IErrorResponse {
 export async function POST(request: Request, response: Response) {
   const credentials = await request.json();
   const apiUrl = process.env.EVOKE_URL;
-  console.log(apiUrl);
 
   try {
     const response = await axios.post(`${apiUrl}/auth/login`, credentials);
     const user = response.data;
-    console.log(user);
 
     cookies().set('accessToken', user.token);
 
-    return NextResponse.json({ user }, { status: 201 });
+    return NextResponse.json({ user }, { status: 200 });
     // return response;
   } catch (error: any) {
     const errorData = (await error.response.data) as IErrorResponse;

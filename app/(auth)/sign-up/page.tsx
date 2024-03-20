@@ -1,17 +1,34 @@
 'use client';
 
-import { auth } from '@/app/constant';
-import Link from 'next/link';
-import AuthWrapper from '@/app/components/wrappers/auth/AuthWrapper';
 import { FormCheckbox, FormInput, FormSubmitBtn } from '@/app/components';
-import { registerAction } from '@/app/actions/registerAction';
+import AuthWrapper from '@/app/components/wrappers/auth/AuthWrapper';
+import { auth } from '@/app/constant';
+import register from '@/utils/auth/register';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+
+interface ErrorResponse {
+  error: string;
+}
 
 const SignUpPage = () => {
+  const router = useRouter();
+  const [signUpError, setSignUpError] = useState<string>('');
+
   async function clientAction(formData: FormData) {
     try {
-      // pass server action here
-    } catch (error) {
-      console.error(error);
+      const response = await register(formData);
+
+      if (response && response.error) {
+        throw new Error(response.error);
+      }
+
+      router.push('/');
+    } catch (error: ErrorResponse | any) {
+      console.log('Error: ', error);
+      const message = error.message as string;
+      setSignUpError(message);
     }
   }
 
@@ -19,6 +36,9 @@ const SignUpPage = () => {
     <AuthWrapper>
       <div>
         <h1 className="font-exo2 text-2xl mb-10">{auth.register.title}</h1>
+        {signUpError && (
+          <p className="font-light text-xmd mb-5 text-red-400">{signUpError}</p>
+        )}
         <form action={clientAction} className="flex flex-col gap-6">
           <div className="grid grid-cols-2 gap-4">
             <FormInput

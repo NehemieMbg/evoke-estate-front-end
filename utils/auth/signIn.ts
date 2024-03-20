@@ -1,3 +1,4 @@
+// client action
 import axios from 'axios';
 
 const signIn = async ({
@@ -8,13 +9,13 @@ const signIn = async ({
   password: string;
 }) => {
   try {
-    const response = await axios.post('/api/auth/login', {
+    await axios.post('/api/auth/login', {
       username,
       password,
     });
-    console.log(response);
   } catch (error) {
     console.error(error);
+    return { error: 'incorrect E-mail,Username or password.' };
   }
 };
 

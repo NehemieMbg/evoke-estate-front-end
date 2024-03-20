@@ -4,6 +4,7 @@ import './globals.css';
 import StoreProvider from './providers/StoreProvider';
 import { cookies } from 'next/headers';
 import axios from 'axios';
+import { getUserData } from '@/utils/functions/users';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,21 +18,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  let user;
-  const accessToken = cookies().get('accessToken');
-
-  if (accessToken && accessToken.value) {
-    const response = await axios.get(`${process.env.EVOKE_URL}/users/me`, {
-      headers: {
-        Authorization: `Bearer ${accessToken.value}`,
-      },
-    });
-    user = response.data;
-  } else {
-    user = undefined;
-  }
-
-  console.log('User: ', user);
+  const user = await getUserData();
 
   return (
     <html lang="en">
