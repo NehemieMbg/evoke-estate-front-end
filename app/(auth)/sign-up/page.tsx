@@ -4,15 +4,15 @@ import { auth } from '@/app/constant';
 import Link from 'next/link';
 import AuthWrapper from '@/app/components/wrappers/auth/AuthWrapper';
 import { FormCheckbox, FormInput, FormSubmitBtn } from '@/app/components';
+import { registerAction } from '@/app/actions/registerAction';
 
 const SignUpPage = () => {
   async function clientAction(formData: FormData) {
-    const data = Object.fromEntries(formData);
-    console.log(data);
-
     try {
       // pass server action here
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
@@ -59,7 +59,7 @@ const SignUpPage = () => {
             // required
           />
           <FormInput
-            name="repeatPassword"
+            name="passwordConfirmation"
             type="password"
             label="Repeat Password (*)"
             placeholder="Repeat Password"

@@ -1,17 +1,18 @@
 'use client';
 
-import { auth } from '@/app/constant';
-import Link from 'next/link';
-import AuthWrapper from '@/app/components/wrappers/auth/AuthWrapper';
 import { FormInput, FormSubmitBtn } from '@/app/components';
+import AuthWrapper from '@/app/components/wrappers/auth/AuthWrapper';
+import { auth } from '@/app/constant';
+import signIn from '@/utils/auth/signIn';
+import Link from 'next/link';
 
 const SignInPage = () => {
   async function clientAction(formData: FormData) {
-    const data = Object.fromEntries(formData);
-    console.log(data);
+    const username = formData.get('username') as string;
+    const password = formData.get('password') as string;
 
     try {
-      // pass server action here
+      await signIn({ username, password });
     } catch (error) {}
   }
 
@@ -21,10 +22,10 @@ const SignInPage = () => {
         <h1 className="font-exo2 text-2xl mb-10">{auth.signIn.title}</h1>
         <form action={clientAction} className="flex flex-col gap-6">
           <FormInput
-            name="email"
-            type="email"
+            name="username"
+            type="text"
             label="Email (*)"
-            placeholder="Email"
+            placeholder="Email or Username"
             // required
           />
 
