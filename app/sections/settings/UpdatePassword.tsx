@@ -1,12 +1,28 @@
 'use client';
 
 import { FormInput, FormSubmitBtn } from '@/app/components';
-import { user } from '@/app/constant/index';
+import updateUserPasswordAction from '@/utils/actions/UpdateUserPasswordAction';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 const UpdatePassword = () => {
+  const router = useRouter();
+  const [updateError, setUpdateError] = useState<string | null>(null);
+
   const clientAction = async (formData: FormData) => {
-    const data = Object.fromEntries(formData);
-    console.log(data);
+    try {
+      const response = await updateUserPasswordAction(formData);
+
+      if (response && response.error) {
+        throw new Error(response.error);
+      }
+
+      router.push('.');
+    } catch (error: any) {
+      // manage error
+      console.error(error);
+      setUpdateError(error.message as string);
+    }
   };
 
   return (
@@ -41,6 +57,10 @@ const UpdatePassword = () => {
       </div>
 
       <div className="">
+        {updateError && (
+          <p className="font-light text-xmd mb-5 text-red-400">{updateError}</p>
+        )}
+
         <FormSubmitBtn
           label="Update Password"
           type="submit"

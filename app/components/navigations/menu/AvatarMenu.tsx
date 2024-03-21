@@ -5,17 +5,10 @@ import {
 } from '@/components/ui/hover-card';
 import NavbarAvatar from '../../avatars/NavbarAvatar';
 import Link from 'next/link';
+import { IUserState } from '@/utils/types/evokeApi/types';
 
 interface AvatarMenuProps {
-  user?: {
-    fullName: string;
-    username: string;
-    title: string;
-    avatar: string;
-    bio: string;
-    followers: number;
-    following: number;
-  };
+  user?: IUserState;
 }
 
 const AvatarMenu: React.FC<AvatarMenuProps> = ({ user }) => {
@@ -32,7 +25,7 @@ const AvatarMenu: React.FC<AvatarMenuProps> = ({ user }) => {
 
       <HoverCardContent className="w-72 p-0 mx-8">
         <Link
-          href={'/username'}
+          href={`/${user?.username}`}
           className="flex items-center gap-4  p-4 pb-4 border-b border-b-neutral-200"
         >
           <NavbarAvatar size={10} src={user?.avatar} />
@@ -47,10 +40,10 @@ const AvatarMenu: React.FC<AvatarMenuProps> = ({ user }) => {
           <Link href={'/pro'} className={`${navigationStyle}`}>
             Upgrade to Pro
           </Link>
-          <Link href={'/username'} className={`${navigationStyle}`}>
+          <Link href={`${user?.username}`} className={`${navigationStyle}`}>
             Profile
           </Link>
-          <Link href={'/coruses'} className={`${navigationStyle}`}>
+          <Link href={'/courses'} className={`${navigationStyle}`}>
             Courses
           </Link>
           <Link href={'/notifications'} className={`${navigationStyle}`}>

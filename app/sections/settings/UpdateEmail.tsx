@@ -1,12 +1,33 @@
 'use client';
 
 import { FormInput, FormSubmitBtn } from '@/app/components';
-import { user } from '@/app/constant/index';
+import updateUserEmailAction from '@/utils/actions/UpdateUserEmailAction';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
-const UpdateEmail = () => {
+interface IProps {
+  currentEmail: string;
+}
+
+const UpdateEmail: React.FC<IProps> = ({ currentEmail }) => {
+  const router = useRouter();
+  const [updateError, setUpdateError] = useState<string | null>(null);
+
   const clientAction = async (formData: FormData) => {
-    const data = Object.fromEntries(formData);
-    console.log(data);
+    try {
+      const response = await updateUserEmailAction(formData);
+      if (response && response.error) {
+        throw new Error(response.error);
+      }
+
+      router.push('.');
+
+      // ? log out user
+    } catch (error: any) {
+      // manage error
+      console.error(error);
+      setUpdateError(error.message as string);
+    }
   };
 
   return (
@@ -21,7 +42,7 @@ const UpdateEmail = () => {
           label="CURRENT E-MAIL (*)"
           name="currentEmail"
           type="text"
-          defaultValue={user.email}
+          defaultValue={currentEmail}
           placeholder={'Current E-mail'}
         />
 
@@ -43,6 +64,9 @@ const UpdateEmail = () => {
       </div>
 
       <div className="">
+        {updateError && (
+          <p className="font-light text-xmd mb-5 text-red-400">{updateError}</p>
+        )}
         <FormSubmitBtn label="Update E-mail" type="submit" islLoading={false} />
         <p className="font-light mt-6">
           Remember to save your changes before exiting this page to ensure all

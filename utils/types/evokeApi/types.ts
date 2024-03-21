@@ -11,11 +11,11 @@ export interface RegisterResponse {
 
 export interface IUserState {
   id?: number;
-  firstName: string;
-  lastName: string;
+  fullName: string;
   email: string;
   username: string;
   title?: string;
   location?: string;
   description?: string;
+  avatar?: string;
 }

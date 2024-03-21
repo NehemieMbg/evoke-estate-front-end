@@ -1,4 +1,20 @@
+'use client';
+
+import deleteUserAction from '@/utils/actions/deleteUserAction';
+import { useRouter } from 'next/navigation';
+
 const DeleteAccount = () => {
+  const router = useRouter();
+
+  const handleDeleteUser = async () => {
+    try {
+      await deleteUserAction();
+      router.push('/sign-in');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       <h2 className="text-lg text-red-500 mb-6">Unhappy?</h2>
@@ -11,7 +27,9 @@ const DeleteAccount = () => {
 
         <div className="text-xmd">
           <span className="font-light">Want to delete you account?</span>{' '}
-          <button className="font-medium">Delete Account</button>
+          <button className="font-medium" onClick={handleDeleteUser}>
+            Delete Account
+          </button>
         </div>
       </div>
     </div>

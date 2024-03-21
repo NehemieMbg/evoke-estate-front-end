@@ -3,6 +3,8 @@
 import { FormCheckbox, FormInput, FormSubmitBtn } from '@/app/components';
 import AuthWrapper from '@/app/components/wrappers/auth/AuthWrapper';
 import { auth } from '@/app/constant';
+import { setUser } from '@/lib/features/user/userSlice';
+import { useAppDispatch } from '@/lib/hooks';
 import register from '@/utils/auth/register';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -14,6 +16,7 @@ interface ErrorResponse {
 
 const SignUpPage = () => {
   const router = useRouter();
+  const dispatch = useAppDispatch();
   const [signUpError, setSignUpError] = useState<string>('');
 
   async function clientAction(formData: FormData) {
@@ -24,6 +27,7 @@ const SignUpPage = () => {
         throw new Error(response.error);
       }
 
+      dispatch(setUser(response));
       router.push('/');
     } catch (error: ErrorResponse | any) {
       console.log('Error: ', error);

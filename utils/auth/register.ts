@@ -49,6 +49,10 @@ const register = async (formData: FormData) => {
       passwordConfirmation,
       termsAndConditions,
     });
+
+    const user = response.data.user;
+
+    return user;
   } catch (error: any) {
     const errorMsg = error.response.data.error;
     return { error: errorMsg };

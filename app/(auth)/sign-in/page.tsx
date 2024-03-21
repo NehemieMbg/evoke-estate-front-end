@@ -3,10 +3,12 @@
 import { FormInput, FormSubmitBtn } from '@/app/components';
 import AuthWrapper from '@/app/components/wrappers/auth/AuthWrapper';
 import { auth } from '@/app/constant';
+import { useAppDispatch } from '@/lib/hooks';
 import signIn from '@/utils/auth/signIn';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { setUser } from '@/lib/features/user/userSlice';
 
 interface ErrorResponse {
   error: string;
@@ -14,6 +16,7 @@ interface ErrorResponse {
 
 const SignInPage = () => {
   const router = useRouter();
+  const dispatch = useAppDispatch();
   const [signInError, setSignInError] = useState<string>('');
 
   async function clientAction(formData: FormData) {
@@ -27,7 +30,8 @@ const SignInPage = () => {
         throw new Error(response.error);
       }
 
-      router.push('/');
+      dispatch(setUser(response));
+      router.refresh();
     } catch (error: ErrorResponse | any) {
       const message = error.message as string;
       setSignInError(message);
