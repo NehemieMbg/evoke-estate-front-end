@@ -27,8 +27,6 @@ const UpdateInfo: React.FC<IProps> = ({ userInfo }) => {
       className="grid xl:grid-cols-3 gap-x-20 gap-y-6"
     >
       <div className="flex flex-col gap-8 xl:col-start-1 xl:col-end-3">
-        <ProfilePictureInput />
-
         {/* //? Username & Full Name */}
         <div className="grid sm:grid-cols-2 gap-6">
           <FormInput

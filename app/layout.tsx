@@ -1,10 +1,8 @@
+import { getUserData } from '@/utils/functions/users';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import StoreProvider from './providers/StoreProvider';
-import { cookies } from 'next/headers';
-import axios from 'axios';
-import { getUserData } from '@/utils/functions/users';
 
 const inter = Inter({ subsets: ['latin'] });
 

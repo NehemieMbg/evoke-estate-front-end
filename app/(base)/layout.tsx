@@ -1,10 +1,8 @@
 import { Navbar } from '../components';
 import Footer from '../components/footer/Footer';
 import HomepageSearch from '../sections/helpersLayouts/HomepageSearch';
-import SearchSettings from '../sections/homepage/searchSettings/SearchSettings';
-import Stories from '../sections/homepage/stories/Stories';
 
-export default function BaseLayout({
+export default async function BaseLayout({
   children, // will be a page or nested layout
 }: {
   children: React.ReactNode;

@@ -18,8 +18,6 @@ const UserProfilePage = async ({
   try {
     const response = await getUserByUsername(username);
 
-    console.log('Response: ', response);
-
     if (response.error) {
       throw new Error(response.error);
     }
@@ -37,7 +35,7 @@ const UserProfilePage = async ({
       <div className="max-w-wide w-full mx-auto flex max-lg:flex-col lg:justify-between mb-14">
         <div>
           <div className="flex lg:items-center gap-7 max-lg:flex-col max-lg:gap-6">
-            <UserProfileAvatar src={userInfo.avatar} />
+            <UserProfileAvatar src={user.avatar} />
 
             <div className="">
               <h2 className="text-3xl font-medium leading-none max-lg:text-xl">

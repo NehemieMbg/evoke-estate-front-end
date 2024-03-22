@@ -30,7 +30,7 @@ const SignUpPage = () => {
       dispatch(setUser(response));
       router.push('/');
     } catch (error: ErrorResponse | any) {
-      console.log('Error: ', error);
+      console.error(error);
       const message = error.message as string;
       setSignUpError(message);
     }

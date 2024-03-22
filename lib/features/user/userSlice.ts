@@ -5,6 +5,7 @@ const initialState: IUserState = {
   id: undefined,
   fullName: '',
   email: '',
+  avatar: '',
   username: '',
   title: '',
   location: '',
@@ -21,9 +22,14 @@ const userSlice = createSlice({
       state.fullName = user.fullName;
       state.email = user.email;
       state.username = user.username;
+      state.avatar = user.avatar;
       state.title = user.title;
       state.location = user.location;
       state.description = user.description;
+    },
+    setAvatar: (state, action) => {
+      console.log('Action Payload: ', action.payload);
+      state.avatar = action.payload as string;
     },
     clearUser: (state) => {
       state = initialState;
@@ -31,5 +37,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { setUser, clearUser } = userSlice.actions;
+export const { setUser, setAvatar, clearUser } = userSlice.actions;
 export default userSlice.reducer;
