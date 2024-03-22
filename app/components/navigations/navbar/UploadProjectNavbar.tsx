@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const UploadProjectNavbar = () => {
   return (
-    <div className="fixed top-0 w-full h-20 flex items-center justify-end gap-4 font-light text-xmd py-6 p-side">
+    <div className="bg-primary-100 fixed top-0 w-full h-20 flex items-center justify-end gap-4 font-light text-xmd py-6 p-side">
       <Link
         href={'/'}
         className="flex items-center justify-center border border-dark-gray-1 rounded-xl h-10 w-20"

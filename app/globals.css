@@ -92,6 +92,36 @@ html {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .new-post-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+
+    @media only screen and (min-width: 1024px) {
+      gap: 40px;
+    }
+
+    @media only screen and (max-width: 1024px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .new-post-grid .new-post-image {
+    @media only screen and (min-width: 1024px) {
+      grid-column: span 7;
+    }
+  }
+
+  .new-post-grid .new-post-content {
+    @media only screen and (min-width: 1024px) {
+      grid-column: 8 / -1;
+    }
+
+    @media only screen and (min-width: 1400px) {
+      grid-column: 9 / -1;
+    }
+  }
+
   .p-side {
     padding: 0 40px;
 

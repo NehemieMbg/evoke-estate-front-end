@@ -8,11 +8,11 @@ const IconContainer: React.FC<IconContainerProps> = ({
   className,
 }) => {
   return (
-    <div
+    <button
       className={`flex items-center justify-center h-10 w-10 rounded-lg bg-white hover:bg-neutral-100 transition-colors duration-200 cursor-pointer ${className}`}
     >
       {children}
-    </div>
+    </button>
   );
 };
 export default IconContainer;

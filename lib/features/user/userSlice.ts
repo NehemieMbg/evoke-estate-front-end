@@ -28,7 +28,6 @@ const userSlice = createSlice({
       state.description = user.description;
     },
     setAvatar: (state, action) => {
-      console.log('Action Payload: ', action.payload);
       state.avatar = action.payload as string;
     },
     clearUser: (state) => {

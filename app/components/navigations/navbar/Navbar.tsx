@@ -42,11 +42,11 @@ const Navbar = () => {
             </Link>
           )}
 
-          {isLoggedIn && (
+          {/* {isLoggedIn && (
             <IconContainer className={iconResponsive}>
               <Squares2X2Icon className="h-5 w-5" strokeWidth={1.3} />
             </IconContainer>
-          )}
+          )} */}
 
           {isLoggedIn && (
             <IconContainer className={iconResponsive}>
