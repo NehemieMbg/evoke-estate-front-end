@@ -1,22 +1,17 @@
+import { IPost } from '@/utils/types/evokeApi/types';
+import { EyeIcon, HandThumbUpIcon } from '@heroicons/react/20/solid';
 import Image from 'next/image';
 import Link from 'next/link';
 import PostAvatar from '../../avatars/PostAvatar';
-import { user } from '@/app/constant';
-import { EyeIcon, HandThumbUpIcon } from '@heroicons/react/20/solid';
+import AspectRatioPost from '../../images/AspectRatioPost';
 
 interface Post {
-  id: number;
-  image: string;
-  href?: string;
-  likes: number;
-  views: number;
-  title: string;
+  post: IPost;
 }
 
-const PostCard: React.FC<Post> = ({ id, image, title, likes, views, href }) => {
+const PostCard: React.FC<Post> = ({ post }) => {
   const isPro = true;
-  const postTitle = title.split(' ').join('-').toLowerCase();
-  const userInitials = user.fullName
+  const userInitials = post.author.fullName
     .split(' ')
     .map((name) => name[0])
     .join('');
@@ -24,37 +19,42 @@ const PostCard: React.FC<Post> = ({ id, image, title, likes, views, href }) => {
   return (
     <div>
       <Link
-        key={id}
-        // href={`/post/${id}/${postTitle}`}
-        href={`/gallery/${id}/${postTitle}`}
+        key={post.id}
+        href={`/gallery/${post.id}`}
         className="contentContainer relative grid grid-cols-1 grid-rows-1 rounded-lg overflow-hidden"
       >
-        <Image
-          src={image}
-          alt="post image"
-          width={773}
-          height={434}
-          className="row-start-1 row-end-2 col-start-1 col-end-2 rounded-lg object-center"
-        />
+        <div className='className="row-start-1 row-end-2 col-start-1 col-end-2'>
+          <AspectRatioPost>
+            <Image
+              src={post.image}
+              alt="post image"
+              width={773}
+              height={434}
+              className="rounded-lg object-center"
+            />
+          </AspectRatioPost>
+        </div>
 
         {/* //? Hidden effects are on the global.css file */}
         <div className="contentTitle flex p-5 items-end row-start-1 row-end-2 col-start-1 col-end-2 z-[1] bg-gradient-to-t from-[rgba(30,30,30,0.7)] to-transparent">
-          <h3 className="text-white font-light uppercase text-xmd">{title}</h3>
+          <h3 className="text-white font-light uppercase text-xmd">
+            {post.title}
+          </h3>
         </div>
       </Link>
 
       <div className="flex justify-between items-center mt-4">
         {/* //? Profile info */}
         <div className="flex gap-2 items-center">
-          <Link href={`/${user.username}`}>
-            <PostAvatar src={user.avatar} initials={userInitials} />
+          <Link href={`/${post.author.username}`}>
+            <PostAvatar src={post.author.avatar} initials={userInitials} />
           </Link>
 
           <Link
-            href={`/${user.username}`}
+            href={`/${post.author.username}`}
             className="inline-block text-xmd hover:underline cursor-pointer"
           >
-            {user.fullName}
+            {post.author.fullName}
           </Link>
           {isPro && (
             <p className="inline-block self-start text-[8px] uppercase font-light mt-1">
@@ -68,14 +68,16 @@ const PostCard: React.FC<Post> = ({ id, image, title, likes, views, href }) => {
           <div>
             <HandThumbUpIcon className="inline-block h-4 text-dark-gray-1" />
             <span className="inline-block text-xs font-medium ml-1">
-              {likes}
+              {/* //! To be updated */}
+              {100}
             </span>
           </div>
 
           <div className="">
             <EyeIcon className="inline-block h-4 text-dark-gray-1" />
             <span className="inline-block text-xs font-medium ml-1">
-              {views}
+              {/* //! To be updated */}
+              {165}
             </span>
           </div>
         </div>

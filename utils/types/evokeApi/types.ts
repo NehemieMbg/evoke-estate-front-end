@@ -19,3 +19,21 @@ export interface IUserState {
   description?: string;
   avatar?: string;
 }
+
+export interface IPost {
+  id: number;
+  title: string;
+  author: IAuthor;
+  image: string;
+  description: string;
+}
+
+export interface IAuthor {
+  id: number;
+  fullName: string;
+  username: string;
+  avatar: string;
+  location: string;
+  title: string;
+  description: string;
+}

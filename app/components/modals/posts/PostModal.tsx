@@ -1,21 +1,24 @@
 'use client';
 
+import { IPost } from '@/utils/types/evokeApi/types';
 import { useRouter } from 'next/navigation';
-import GalleryAvatar1 from '../../avatars/GalleryAvatar1';
-import { post, user } from '@/app/constant';
-import Link from 'next/link';
-import PostFollowUser from '../../buttons/infos/PostFollowUser';
 import { PostAction } from '../..';
+import GalleryAvatar1 from '../../avatars/GalleryAvatar1';
+import PostFollowUser from '../../buttons/infos/PostFollowUser';
+import { useAppSelector } from '@/lib/hooks';
 
 interface PostModalProps {
+  post: IPost;
   children: React.ReactNode;
 }
 
-const PostModal: React.FC<PostModalProps> = ({ children }) => {
+const PostModal: React.FC<PostModalProps> = ({ post, children }) => {
   const router = useRouter();
   const closeModal = () => router.back();
+  const user = useAppSelector((state) => state.user);
+  const ownPost = user.username === post.author.username;
 
-  const userInitials = user.fullName
+  const userInitials = post.author.fullName
     .split(' ')
     .map((n) => n[0])
     .join('');
@@ -32,7 +35,10 @@ const PostModal: React.FC<PostModalProps> = ({ children }) => {
           {/* //? User Info */}
           <div className="flex items-center gap-4 max-lg:gap-2">
             <div className="max-sm:hidden">
-              <GalleryAvatar1 src={user.avatar} initials={userInitials} />
+              <GalleryAvatar1
+                src={post.author.avatar}
+                initials={userInitials}
+              />
             </div>
 
             <div className="text-xmd max-lg:text-sm">
@@ -41,14 +47,14 @@ const PostModal: React.FC<PostModalProps> = ({ children }) => {
               </h3>
 
               <PostFollowUser
-                username={user.username}
-                fullName={user.fullName}
+                username={post.author.username}
+                fullName={post.author.fullName}
                 isFollowing={true}
               />
             </div>
           </div>
 
-          <PostAction />
+          <PostAction ownPost={ownPost} postId={post.id} />
         </div>
 
         <div className="">{children}</div>

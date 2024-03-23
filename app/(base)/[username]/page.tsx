@@ -1,9 +1,9 @@
 import { PostsWrapper, UserProfileAvatar } from '@/app/components';
 import PostCardProfile from '@/app/components/cards/posts/PostCardProfile';
-import { posts, user as userInfo } from '@/app/constant';
+import { user as userInfo } from '@/app/constant';
+import getPostByUsername from '@/utils/functions/posts/getPostByUsername';
 import { getUserByUsername } from '@/utils/functions/users';
-import { IUserState } from '@/utils/types/evokeApi/types';
-import Link from 'next/link';
+import { IPost, IUserState } from '@/utils/types/evokeApi/types';
 import { redirect } from 'next/navigation';
 
 const UserProfilePage = async ({
@@ -12,17 +12,20 @@ const UserProfilePage = async ({
   params: { username: string };
 }) => {
   let user: IUserState;
+  const posts: IPost[] = [];
   const followerSpanStyle = 'font-medium';
   const username = params.username;
 
   try {
-    const response = await getUserByUsername(username);
+    const userResponse = await getUserByUsername(username);
+    const postsResponse = await getPostByUsername(username);
 
-    if (response.error) {
-      throw new Error(response.error);
+    if (userResponse.error) {
+      throw new Error(userResponse.error);
     }
 
-    user = response;
+    user = userResponse;
+    posts.push(...postsResponse);
   } catch (error) {
     console.error(error);
     // act accordingly redirect to homepage or show error message
@@ -82,14 +85,7 @@ const UserProfilePage = async ({
 
       <PostsWrapper>
         {posts.map((post) => (
-          <PostCardProfile
-            id={post.id}
-            image={post.content}
-            key={post.id}
-            likes={post.likes}
-            views={post.views}
-            title={post.title}
-          />
+          <PostCardProfile key={post.id} post={post} />
         ))}
       </PostsWrapper>
     </section>

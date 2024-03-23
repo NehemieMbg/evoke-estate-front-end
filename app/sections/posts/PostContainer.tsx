@@ -1,12 +1,16 @@
 'use client';
 
-import { post } from '@/app/constant';
+import { IPost } from '@/utils/types/evokeApi/types';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
 import Image from 'next/image';
 import { useState } from 'react';
 
-const PostContainer = () => {
+interface IProps {
+  post: IPost;
+}
+
+const PostContainer: React.FC<IProps> = ({ post }) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
 
   const handleEnableFullScreen = () => {
@@ -24,7 +28,7 @@ const PostContainer = () => {
           {/* //? Post Image */}
           <div onClick={handleEnableFullScreen} className="cursor-zoom-in">
             <Image
-              src={post.src}
+              src={post.image}
               alt={post.title}
               width={1372}
               height={1715}
@@ -36,7 +40,7 @@ const PostContainer = () => {
       {isFullScreen && (
         <div className="fixed top-0 right-0 bottom-0 left-0 bg-black z-[1000]">
           <Image
-            src={post.src}
+            src={post.image}
             alt={post.title}
             width={1372}
             height={1715}

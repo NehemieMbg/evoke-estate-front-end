@@ -1,19 +1,16 @@
+import getAllPost from '@/utils/functions/posts/getAllPost';
+import { IPost } from '@/utils/types/evokeApi/types';
 import { PostCard, PostsWrapper } from '../components';
-import { posts } from '../constant';
 
-export default function Home() {
+export default async function Home() {
+  const response = await getAllPost();
+  const posts: IPost[] = response || [];
+
   return (
     <main className="p-side">
       <PostsWrapper>
         {posts.map((post) => (
-          <PostCard
-            id={post.id}
-            image={post.content}
-            key={post.id}
-            likes={post.likes}
-            views={post.views}
-            title={post.title}
-          />
+          <PostCard key={post.id} post={post} />
         ))}
       </PostsWrapper>
     </main>

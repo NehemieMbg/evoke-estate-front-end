@@ -4,7 +4,9 @@ import { FormInput } from '@/app/components';
 import FormTextArea from '@/app/components/forms/inputs/FormTextArea';
 import LogoXL from '@/app/components/icons/logo/LogoXL';
 import UploadProjectNavbar from '@/app/components/navigations/navbar/UploadProjectNavbar';
+import postNewPostAction from '@/utils/actions/postNewPostAction';
 import NextImage from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 interface IImageHeightAndWidth {
@@ -13,6 +15,7 @@ interface IImageHeightAndWidth {
 }
 
 const UploadPage = () => {
+  const router = useRouter();
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
 
@@ -23,15 +26,22 @@ const UploadPage = () => {
     });
 
   const clientAction = async (formData: FormData) => {
-    const data = Object.fromEntries(formData);
-    console.log(data);
+    try {
+      const response = (await postNewPostAction(formData)) as any;
+
+      if (response && response.error) {
+        throw new Error(response.error);
+      }
+      router.push('/');
+    } catch (error: any) {
+      console.error(error.message);
+    }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
 
     const file = e.target.files[0];
-    console.log(file);
 
     // ? Get image height and width and set it to state
     const reader = new FileReader();
@@ -86,7 +96,7 @@ const UploadPage = () => {
         </div>
       </div>
 
-      <div className="new-post-grid p-side py-32">
+      <div className={`new-post-grid p-side py-32 ${!file && 'hidden'}`}>
         <div className="new-post-image">
           {preview && imageHeighAndWidth.height && imageHeighAndWidth.width && (
             <NextImage
