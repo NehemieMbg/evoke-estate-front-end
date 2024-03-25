@@ -30,7 +30,7 @@ const PostCard: React.FC<Post> = ({ post }) => {
               alt="post image"
               width={773}
               height={434}
-              className="rounded-lg object-center"
+              className="rounded-lg object-center h-full w-full object-cover"
             />
           </AspectRatioPost>
         </div>
@@ -69,15 +69,14 @@ const PostCard: React.FC<Post> = ({ post }) => {
             <HandThumbUpIcon className="inline-block h-4 text-dark-gray-1" />
             <span className="inline-block text-xs font-medium ml-1">
               {/* //! To be updated */}
-              {100}
+              {post.likedBy.length}
             </span>
           </div>
 
           <div className="">
             <EyeIcon className="inline-block h-4 text-dark-gray-1" />
             <span className="inline-block text-xs font-medium ml-1">
-              {/* //! To be updated */}
-              {165}
+              {post.views}
             </span>
           </div>
         </div>

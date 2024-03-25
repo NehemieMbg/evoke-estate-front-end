@@ -40,7 +40,7 @@ const AvatarMenu: React.FC<AvatarMenuProps> = ({ user }) => {
           <Link href={'/pro'} className={`${navigationStyle}`}>
             Upgrade to Pro
           </Link>
-          <Link href={`${user?.username}`} className={`${navigationStyle}`}>
+          <Link href={`/${user?.username}`} className={`${navigationStyle}`}>
             Profile
           </Link>
           <Link href={'/courses'} className={`${navigationStyle}`}>

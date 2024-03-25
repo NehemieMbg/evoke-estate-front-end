@@ -9,7 +9,7 @@ const page = async () => {
 
   return (
     <div className="">
-      <UpdateEmail currentEmail={userInfo.email} />
+      <UpdateEmail />
 
       <hr className="my-20" />
 

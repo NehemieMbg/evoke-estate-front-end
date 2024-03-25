@@ -1,13 +1,15 @@
 'use server';
 
-import { AxiosError } from 'axios';
-import { evokeReq } from '../functions/evokeApiReq';
-import { redirect } from 'next/navigation';
+import axios, { AxiosError } from 'axios';
+import { cookies } from 'next/headers';
 
 const postNewPostAction = async (formData: FormData) => {
+  const accessToken = cookies().get('accessToken');
+
   try {
-    await evokeReq.post('/posts', formData, {
+    await axios.post(`${process.env.EVOKE_URL}/posts`, formData, {
       headers: {
+        Authorization: `Bearer ${accessToken?.value}`,
         'Content-Type': 'multipart/form-data',
       },
     });

@@ -12,8 +12,6 @@ const page = async ({ params }: { params: { postId: string } }) => {
   if (response.error || !user) redirect('/');
   if (user.username !== post.author.username) redirect('/');
 
-  console.log(response);
-
   return (
     <div>
       <EditPost post={post} />

@@ -4,17 +4,20 @@ import {
   UserProfileAvatar,
 } from '@/app/components';
 import PostContainer from '@/app/sections/posts/PostContainer';
-import { user, post } from '@/app/constant';
-import Link from 'next/link';
 import getPostById from '@/utils/functions/posts/getPostById';
-import { redirect } from 'next/navigation';
+import { getUserData } from '@/utils/functions/users';
 import { IPost } from '@/utils/types/evokeApi/types';
+import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
 async function PostPage({ params }: { params: { postId: string } }) {
   const response = await getPostById(params.postId);
+  const user = await getUserData();
+  const post: IPost = response;
+
   if (response.error) redirect('/');
 
-  const post: IPost = response;
+  const ownPost = user.username === post.author.username;
 
   const userInitials = post.author.fullName
     .split(' ')
@@ -29,7 +32,6 @@ async function PostPage({ params }: { params: { postId: string } }) {
         </Link>
 
         <div className="flex flex-col items-center text-center mt-6">
-          {/* <p className=" mb-2">{user.fullName}</p> */}
           <div className="mb-4">
             <PostFollowUser
               username={post.author.username}
@@ -42,7 +44,12 @@ async function PostPage({ params }: { params: { postId: string } }) {
             {post.title.toUpperCase()}
           </h3>
 
-          <PostAction className="mt-6" btnClassName="bg-white" />
+          <PostAction
+            className="mt-6"
+            btnClassName="bg-white"
+            ownPost={ownPost}
+            post={post}
+          />
         </div>
       </div>
       <PostContainer post={post} />

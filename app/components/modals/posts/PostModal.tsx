@@ -17,6 +17,10 @@ const PostModal: React.FC<PostModalProps> = ({ post, children }) => {
   const closeModal = () => router.back();
   const user = useAppSelector((state) => state.user);
   const ownPost = user.username === post.author.username;
+  const tempLikedPost = post.likedBy.filter(
+    (u) => u.username === user.username
+  );
+  const hasLikedPost = tempLikedPost.length > 0;
 
   const userInitials = post.author.fullName
     .split(' ')
@@ -54,7 +58,11 @@ const PostModal: React.FC<PostModalProps> = ({ post, children }) => {
             </div>
           </div>
 
-          <PostAction ownPost={ownPost} postId={post.id} />
+          <PostAction
+            post={post}
+            ownPost={ownPost}
+            hasLikedPost={hasLikedPost}
+          />
         </div>
 
         <div className="">{children}</div>

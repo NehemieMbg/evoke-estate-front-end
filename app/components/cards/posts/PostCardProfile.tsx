@@ -21,7 +21,7 @@ const PostCardProfile: React.FC<Post> = ({ post }) => {
               alt="post image"
               width={773}
               height={434}
-              className="rounded-lg object-center"
+              className="rounded-lg object-center h-full w-full object-cover"
             />
           </AspectRatioPost>
         </div>

@@ -5,7 +5,7 @@ import { evokeReq } from '../functions/evokeApiReq';
 
 const removeAvatarAction = async () => {
   try {
-    const response = await evokeReq.get('/me/avatar/delete');
+    const response = await evokeReq.delete('users/me/avatar');
 
     console.log('Avatar Removed: ', response.data);
   } catch (error: AxiosError | any) {

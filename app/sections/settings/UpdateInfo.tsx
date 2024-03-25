@@ -2,17 +2,14 @@
 
 import { FormInput, FormSubmitBtn } from '@/app/components';
 import FormTextArea from '@/app/components/forms/inputs/FormTextArea';
-import ProfilePictureInput from '@/app/components/forms/inputs/ProfilePictureInput';
 import updateUserInfoAction from '@/utils/actions/updateUserInfoAction';
+import useSession from '@/utils/hooks/useSession';
 import { IUserState } from '@/utils/types/evokeApi/types';
 import { useRouter } from 'next/navigation';
 
-interface IProps {
-  userInfo: IUserState;
-}
-
-const UpdateInfo: React.FC<IProps> = ({ userInfo }) => {
+const UpdateInfo = () => {
   const router = useRouter();
+  const user = useSession() as IUserState | null;
 
   const clientAction = async (formData: FormData) => {
     try {
@@ -33,14 +30,14 @@ const UpdateInfo: React.FC<IProps> = ({ userInfo }) => {
             label="USERNAME (*)"
             name="username"
             type="text"
-            defaultValue={userInfo?.username}
+            defaultValue={user?.username}
             placeholder={'Username'}
           />
           <FormInput
             label="FULL NAME (*)"
             name="fullName"
             type="text"
-            defaultValue={userInfo?.fullName}
+            defaultValue={user?.fullName}
             placeholder={'Full Name'}
           />
         </div>
@@ -51,14 +48,14 @@ const UpdateInfo: React.FC<IProps> = ({ userInfo }) => {
             label="CITY, COUNTRY (*)"
             name="country"
             type="text"
-            defaultValue={userInfo?.location}
+            defaultValue={user?.location || ''}
             placeholder={'City, Country'}
           />
           <FormInput
             label="WHO ARE YOU? (*)"
             name="title"
             type="text"
-            defaultValue={userInfo?.title}
+            defaultValue={user?.title}
             placeholder={'Who are you?'}
           />
         </div>
@@ -66,7 +63,7 @@ const UpdateInfo: React.FC<IProps> = ({ userInfo }) => {
         <FormTextArea
           label="DESCRIPTION"
           name="description"
-          defaultValue={userInfo?.description}
+          defaultValue={user?.description}
           placeholder={'description'}
         />
       </div>

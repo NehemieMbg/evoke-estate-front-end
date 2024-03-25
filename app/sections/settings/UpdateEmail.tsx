@@ -2,6 +2,7 @@
 
 import { FormInput, FormSubmitBtn } from '@/app/components';
 import updateUserEmailAction from '@/utils/actions/UpdateUserEmailAction';
+import useSession from '@/utils/hooks/useSession';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -9,8 +10,10 @@ interface IProps {
   currentEmail: string;
 }
 
-const UpdateEmail: React.FC<IProps> = ({ currentEmail }) => {
+const UpdateEmail = () => {
   const router = useRouter();
+  const session = useSession();
+
   const [updateError, setUpdateError] = useState<string | null>(null);
 
   const clientAction = async (formData: FormData) => {
@@ -38,13 +41,12 @@ const UpdateEmail: React.FC<IProps> = ({ currentEmail }) => {
       <h2 className="text-lg font-medium mb-4">Change email</h2>
 
       <div className="flex flex-col gap-8 xl:col-start-1 xl:col-end-3">
-        <FormInput
-          label="CURRENT E-MAIL (*)"
-          name="currentEmail"
-          type="text"
-          defaultValue={currentEmail}
-          placeholder={'Current E-mail'}
-        />
+        <div>
+          <p className="block mb-2 text-xs font-light text-text-light-gray uppercase">
+            Current Email
+          </p>
+          <p>{session?.email}</p>
+        </div>
 
         {/* //? Username & Full Name */}
         <div className="grid sm:grid-cols-2 gap-6">

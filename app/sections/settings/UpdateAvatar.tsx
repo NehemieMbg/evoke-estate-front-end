@@ -8,8 +8,10 @@ import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import removeAvatarAction from '@/utils/actions/removeAvatarAction';
 import updateAvatarAction from '@/utils/actions/updateAvatarAction';
 import { ArrowUpTrayIcon } from '@heroicons/react/24/outline';
+import { useRouter } from 'next/navigation';
 
 const UpdateAvatar = () => {
+  const router = useRouter();
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.user);
 
@@ -37,7 +39,8 @@ const UpdateAvatar = () => {
   const handleAvatarRemoval = async () => {
     try {
       await removeAvatarAction();
-      // dispatch(setAvatar(''));
+      dispatch(setAvatar(''));
+      router.refresh();
     } catch (error) {
       console.error(error);
     }
@@ -66,14 +69,16 @@ const UpdateAvatar = () => {
           onChange={handleFileChange}
         />
       </div>
-      <div>
-        <p
-          onClick={handleAvatarRemoval}
-          className="text-red-400 cursor-pointer text-xmd"
-        >
-          Remove
-        </p>
-      </div>
+      {user.avatar && (
+        <div>
+          <p
+            onClick={handleAvatarRemoval}
+            className="text-red-400 cursor-pointer text-xmd"
+          >
+            Remove
+          </p>
+        </div>
+      )}
     </form>
   );
 };

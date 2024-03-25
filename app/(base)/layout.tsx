@@ -2,6 +2,8 @@ import { Navbar } from '../components';
 import Footer from '../components/footer/Footer';
 import HomepageSearch from '../sections/helpersLayouts/HomepageSearch';
 
+export const revalidate = 0;
+
 export default async function BaseLayout({
   children, // will be a page or nested layout
 }: {

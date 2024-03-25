@@ -26,6 +26,8 @@ export interface IPost {
   author: IAuthor;
   image: string;
   description: string;
+  views: number;
+  likedBy: IAuthor[];
 }
 
 export interface IAuthor {
