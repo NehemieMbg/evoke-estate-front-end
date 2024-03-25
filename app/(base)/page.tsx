@@ -6,8 +6,6 @@ export default async function Home() {
   const response = await getAllPost();
   const posts: IPost[] = response || [];
 
-  console.log(posts);
-
   return (
     <main className="p-side">
       <PostsWrapper>

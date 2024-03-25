@@ -29,10 +29,10 @@ const UploadMenu: React.FC<UploadMenuProps> = () => {
             <span>Share Design</span>
           </Link>
 
-          <Link href={'/create/story'} className={`${navigationStyle}`}>
+          {/* <Link href={'/create/story'} className={`${navigationStyle}`}>
             <ClockIcon className="h-5 w-5" strokeWidth={1.5} />
             <span>Share Story</span>
-          </Link>
+          </Link> */}
         </div>
       </HoverCardContent>
     </HoverCard>

@@ -1,9 +1,9 @@
 import { PostsWrapper, UserProfileAvatar } from '@/app/components';
+import ProfileBtnAction from '@/app/components/buttons/profile/ProfileBtnAction';
 import PostCardProfile from '@/app/components/cards/posts/PostCardProfile';
-import { user as userInfo } from '@/app/constant';
 import getPostByUsername from '@/utils/functions/posts/getPostByUsername';
 import { getUserByUsername } from '@/utils/functions/users';
-import { IPost, IUserState } from '@/utils/types/evokeApi/types';
+import { IPost, ISimpleUser } from '@/utils/types/evokeApi/types';
 import { redirect } from 'next/navigation';
 
 const UserProfilePage = async ({
@@ -11,9 +11,8 @@ const UserProfilePage = async ({
 }: {
   params: { username: string };
 }) => {
-  let user: IUserState;
+  let user: ISimpleUser;
   const posts: IPost[] = [];
-  const followerSpanStyle = 'font-medium';
   const username = params.username;
 
   try {
@@ -56,31 +55,7 @@ const UserProfilePage = async ({
             {user.description}
           </p>
         </div>
-
-        <div className="max-lg:mt-6">
-          <div className="font-light text-md lg:text-right">
-            <p className="inline-block mr-4">
-              Followers{' '}
-              <span className={followerSpanStyle}>{userInfo.followers}</span>
-            </p>
-            <p className="inline-block">
-              Following{' '}
-              <span className={followerSpanStyle}>{userInfo.following}</span>
-            </p>
-          </div>
-
-          <div className="flex gap-4 items-center lg:justify-end mt-5 font-light">
-            {/* <Link
-              href={'/'}
-              className="border border-dark-gray-1 px-4 h-12 rounded-xl font-extralight flex items-center justify-center hover:bg-neutral-100 transition-colors duration-200"
-            >
-              Message
-            </Link> */}
-            <button className="bg-dark-gray-1 px-4 h-12 text-white rounded-xl font-extralight">
-              Follow
-            </button>
-          </div>
-        </div>
+        <ProfileBtnAction user={user} />
       </div>
 
       <PostsWrapper>

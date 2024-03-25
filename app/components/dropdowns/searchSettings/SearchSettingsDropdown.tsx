@@ -42,9 +42,9 @@ const SearchSettingsDropdown = () => {
           <SelectItem value="For You" className="py-3">
             <button>For You</button>
           </SelectItem>
-          <SelectItem value="Following" className="py-3">
+          {/* <SelectItem value="Following" className="py-3">
             Following
-          </SelectItem>
+          </SelectItem> */}
         </SelectGroup>
       </SelectContent>
     </Select>

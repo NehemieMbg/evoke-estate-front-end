@@ -1,13 +1,13 @@
 'use client';
 
-import { BellIcon, Squares2X2Icon } from '@heroicons/react/24/outline';
+import { BellIcon } from '@heroicons/react/24/outline';
 import Logo from '../../icons/logo/Logo';
 
 import Link from 'next/link';
 import IconContainer from '../../icons/container/IconContainer';
 import NavSearch from '../../search/NavSearch';
 import AvatarMenu from '../menu/AvatarMenu';
-// import { user } from '@/app/constant';
+// import { user } from '@/app/constant';Ø
 import { useAppSelector } from '@/lib/hooks';
 import UploadMenu from '../menu/UploadMenu';
 
@@ -47,12 +47,12 @@ const Navbar = () => {
               <Squares2X2Icon className="h-5 w-5" strokeWidth={1.3} />
             </IconContainer>
           )} */}
-
+          {/* 
           {isLoggedIn && (
             <IconContainer className={iconResponsive}>
               <BellIcon className="h-5 w-5" strokeWidth={1} />
             </IconContainer>
-          )}
+          )} */}
 
           {isLoggedIn && <UploadMenu />}
 

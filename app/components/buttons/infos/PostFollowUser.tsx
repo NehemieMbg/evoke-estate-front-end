@@ -16,10 +16,10 @@ const PostFollowUser: React.FC<PostFollowUserProps> = ({
       <Link href={`/${username}`} className="leading-none mr-2">
         {fullName}
       </Link>
-      <span className="mr-2">-</span>
-      <button className="hover:underline">
+      {/* <span className="mr-2">-</span> */}
+      {/* <button className="hover:underline">
         {isFollowing ? 'Following' : 'follow'}
-      </button>
+      </button> */}
     </div>
   );
 };

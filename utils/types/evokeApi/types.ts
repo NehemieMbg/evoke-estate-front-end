@@ -39,3 +39,15 @@ export interface IAuthor {
   title: string;
   description: string;
 }
+
+export interface ISimpleUser {
+  id: number;
+  fullName: string;
+  username: string;
+  avatar: string;
+  location: string;
+  title: string;
+  description: string;
+  followers: IAuthor[];
+  following: IAuthor[];
+}
