@@ -4,7 +4,7 @@ import { PostCard, PostsWrapper } from '../components';
 
 export default async function Home() {
   const response = await getAllPost();
-  const posts: IPost[] = response || [];
+  const posts: IPost[] = Array.isArray(response) ? response : [];
 
   return (
     <main className="p-side">
