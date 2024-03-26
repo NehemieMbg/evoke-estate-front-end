@@ -14,11 +14,7 @@ const updateUserPasswordAction = async (formData: FormData) => {
   };
 
   try {
-    const response = await evokeReq.put(
-      '/users/me/updatePassword',
-      requestData
-    );
-    // console.log(response.data);
+    await evokeReq.put('/users/me/updatePassword', requestData);
   } catch (error: AxiosError | any) {
     console.log(error);
     const errorMsg = error.response.data.message;
