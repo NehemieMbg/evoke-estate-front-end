@@ -33,7 +33,7 @@ export async function POST(request: Request, response: Response) {
 
     return NextResponse.json({ user }, { status: 200 });
   } catch (error: any) {
-    const data = (await error.response.data) as IErrorResponse;
+    const data = (await error.response?.data) as IErrorResponse;
     // console.error(data);
     return NextResponse.json({ error: data.message }, { status: 400 });
   }

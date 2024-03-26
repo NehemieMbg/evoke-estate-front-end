@@ -14,7 +14,6 @@ const likePostAction = async (postId: number) => {
       `${process.env.EVOKE_URL}/posts/${postId}/likes`
     );
 
-    console.log('Like post response: ', response.data);
     return response.data.isLiked;
   } catch (error: AxiosError | any) {
     console.error('Like post error: ', error.response.data);

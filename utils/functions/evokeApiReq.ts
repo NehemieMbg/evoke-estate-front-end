@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 const accessToken = cookies().get('accessToken');
 
 export const evokeReq = axios.create({
-  baseURL: 'http://localhost:5454/api/v1',
+  baseURL: `${process.env.EVOKE_URL}`,
   headers: {
     Authorization: `Bearer ${accessToken?.value}`,
   },

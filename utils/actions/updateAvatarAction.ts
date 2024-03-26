@@ -13,7 +13,7 @@ const updateAvatarAction = async (formData: FormData) => {
 
     return response.data.avatarUrl;
   } catch (error: AxiosError | any) {
-    console.error('Error updating avatar: ', error.response.data);
+    console.error('Error updating avatar: ', error);
   }
 };
 
